@@ -1,25 +1,36 @@
 // function to render license badge if license is passed
 function renderLicenseBadge(license) {
-  if (license !== '' || license !== undefined || license !== null){
-    return `https://img.shields.io/static/v1?label=License&message=${license}&color=blue`;
-  } else{
-    return '';
+  switch (license){
+    case "Apace License 2.0":
+      return "https://img.shields.io/badge/License-Apache_2.0-blue.svg";
+    case "GNU General Public License v3.0":
+      return "https://img.shields.io/badge/License-GPLv3-blue.svg";
+    case "MIT License":
+      return "https://img.shields.io/badge/License-MIT-yellow.svg";
+    case "Mozilla Public License 2.0":
+      return "https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg";
+    default:
+      return "";
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-// https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository#searching-github-by-license-type
-// https://choosealicense.com/appendix/
+// returns link to documentation about the chosen license
 function renderLicenseLink(license) {
-  if (license !== '' || license !== undefined || license !== null){
-    return ``;
-  } else{
-    return '';
-}}
+  switch (license){
+    case "Apace License 2.0":
+      return "https://opensource.org/licenses/Apache-2.0";
+    case "GNU General Public License v3.0":
+      return "https://www.gnu.org/licenses/gpl-3.0";
+    case "MIT License":
+      return "https://opensource.org/licenses/MIT";
+    case "Mozilla Public License 2.0":
+      return "https://opensource.org/licenses/MPL-2.0";
+    default:
+      return "";
+  }
+}
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// create a function that returns the license section of README
 function renderLicenseSection(license) {
   if (license !== '' || license !== undefined || license !== null){
   return `
@@ -38,7 +49,7 @@ function generateMarkdown(data) {
   return `
 # ${data.projectTitle}
 
-![License](${renderLicenseBadge(data.projectLicense)})
+[![License](${renderLicenseBadge(data.projectLicense)})](${renderLicenseLink(data.projectLicense)})
 
 ## Table of Contents
 1. [Description](#description)

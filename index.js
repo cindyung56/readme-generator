@@ -42,16 +42,7 @@ const questions = [
     "Apache License 2.0", 
     "GNU General Public License v3.0", 
     "MIT License",
-    'BSD 2-Clause "Simplified" License',
-    'BSD 3-Clause "New" or "Revised" License',
-    "Boost Software License",
-    "Creative Commons Zero v1.0 Universal",
-    "Eclipse Public License",
-    "GNU Affero General Public License v3.0",
-    "GNU General Public License 2.0",
-    "GNU Lesser General Public License v2.1",
     "Mozilla Public License 2.0",
-    "The Unlicense", 
     ],
     name: "projectLicense",
 },
@@ -79,10 +70,10 @@ function init() {
       inquirer
         .prompt(questions) 
         .then((response) => {
-            console.log(response);
+            // console.log(response);
             // response.projectLicense
-            // const fileData = markdown.generateMarkdown(response);
-            // writeToFile("README.md", fileData);
+            const fileData = markdown(response);
+            writeToFile("README.md", fileData);
         })
     }
     
