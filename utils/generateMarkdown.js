@@ -35,7 +35,7 @@ function renderLicenseSection(license) {
   if (license !== '' || license !== undefined || license !== null){
   return `
 This project is covered under the ${license}.
-For more information, please check [this link](${renderLicenseLink(license)}).
+For more information, please refer to [this link](${renderLicenseLink(license)}).
 `    
   } else{
     return '';
@@ -51,18 +51,17 @@ function generateMarkdown(data) {
 
 [![License](${renderLicenseBadge(data.projectLicense)})](${renderLicenseLink(data.projectLicense)})
 
-## Table of Contents
-1. [Description](#description)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [License](#license)
-5. [Contributing](#contributing)
-6. [Tests](#tests)
-7. [Questions](#questions)
-
 ## Description
 
 ${data.projectDescription}
+
+## Table of Contents
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [License](#license)
+4. [Contributing](#contributing)
+5. [Tests](#tests)
+6. [Questions](#questions)
 
 ## Installation
 
@@ -88,7 +87,7 @@ ${data.projectTesting}
 
 Access my GitHub profile at [https://github.com/${data.gitUsername}](https://github.com/${data.gitUsername}) for other projects.
 
-If you have additional questions or comments, please feel free to contact me at [${data.userEmail}](${data.userEmail}).
+If you have additional questions or comments, please feel free to contact me at [${data.userEmail}](mailto:${data.userEmail}).
 
 `
 }
